@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: #f50c80;
+            background-color: #ebd7bf;
+            background-image: linear-gradient(100deg,#f0f0f0 0%,#285f39 100%) ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 2;
+        }
+        form{
+            background-color: #eddde0;
+            max-width: 360px;
+            width: 100%;
+            padding: 58px  45px;
+            border-radius: 5px;
+            box-shadow:0 0 6px 0 rgba(65, 132, 200, 0.9)
+        }
+        .row{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+        .row label{
+            font-size: 20px;
+        }
+        .row input{
+            flex :1;
+            padding:13px;
+            border: 1px solid #6a82fb;
+            border-radius: 5px;
+        }
+        .btn{
+            width:100%;
+            padding:9px;
+            font-size:13px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgb(210, 245, 233);
+            cursor: pointer;
+
+        }
+        @media (max-width:458px){
+            body{ 
+                margin: 0.18px
+            }
+            form{
+                background-color: #c94b4b;
+                border:none ;
+                padding: 20px  10px;
+                box-shadow: #4b134f;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>LOGIN</h1>
+    <form onsubmit="return validate()">
+    <form>
+        <div class="row">
+          <label>Username</label>
+        <input  id="username"placeholder="USERNAME"/>
+        </div>
+        <div class="row">
+           <label>password</label>
+           <input id="password"type="password"placeholder="password"/>
+        </div>   
+     <button class="btn">login</button>
+    </form>
+    <script>
+        function validate(){
+            var username=document.getElementById("username").value
+            var password=document.getElementById("password").value
+            var usernameCheck=/^[a-z]@[a-z]=\.[a-z]{2,3}$/
+                        //aswijakarra8@gmail.
+            var passwordCheck=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z].{4,6}$/            
+            console.log(username,password)
+            if(username==""){
+                alert("plz enter username...")
+                return false
+            }
+            if(!username.match(usernameCheck)){
+                alert("Invalid user name or password..")
+                return false
+            }
+            if(!password.match(passwordCheck)){
+                alert("password must contain one upper case....." )
+            }
+            return true
+
+        }
+    </script>
+</body>
+</html>
